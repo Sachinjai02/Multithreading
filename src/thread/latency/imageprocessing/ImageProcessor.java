@@ -1,4 +1,4 @@
-package thread.imageprocessing;
+package thread.latency.imageprocessing;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
