@@ -1,4 +1,4 @@
-package thread.race.condition;
+package thread.race.condition.non.atomic;
 
 public class InventoryCounter {
 
