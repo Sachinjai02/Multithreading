@@ -2,7 +2,7 @@ package thread.race.condition.atomic.operations;
 
 import java.util.Random;
 
-public class MetricsDemo {
+public class AverageMetricsDemo {
 
     public static void main(String[] args) {
         Metrics metrics = new Metrics();
