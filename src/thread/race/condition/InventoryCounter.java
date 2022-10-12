@@ -3,7 +3,7 @@ package thread.race.condition;
 public class InventoryCounter {
 
     private int items = 0;
-
+    private Object lock = new Object();
     public static void main(String[] args) throws InterruptedException {
         InventoryCounter ic = new InventoryCounter();
         IncrementingThread incrementingThread = new IncrementingThread(ic);
@@ -45,9 +45,13 @@ public class InventoryCounter {
     }
 
     private void increment() {
-        ++this.items;
+        synchronized (this.lock) {
+            ++this.items;
+        }
     }
     private void decrement() {
-        --this.items;
+        synchronized (this.lock) {
+            --this.items;
+        }
     }
 }
