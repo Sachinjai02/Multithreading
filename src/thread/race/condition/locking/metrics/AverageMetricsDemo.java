@@ -1,4 +1,4 @@
-package thread.race.condition.atomic.operations;
+package thread.race.condition.locking.metrics;
 
 import java.util.Random;
 

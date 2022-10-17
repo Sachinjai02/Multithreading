@@ -1,8 +1,10 @@
-package thread.race.condition.non.atomic;
+package thread.race.condition.atomic.core.inventory;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class InventoryCounter {
 
-    private int items = 0;
+    private AtomicInteger items = new AtomicInteger(0);
     private Object lock = new Object();
     public static void main(String[] args) throws InterruptedException {
         InventoryCounter ic = new InventoryCounter();
@@ -14,7 +16,6 @@ public class InventoryCounter {
 
         incrementingThread.join();
         decrementingThread.join();
-
         long end = System.currentTimeMillis();
         System.out.println("Number of items left in inventory " + ic.items);
         System.out.println("Took time = " + (end-start));
@@ -48,13 +49,9 @@ public class InventoryCounter {
     }
 
     private void increment() {
-        synchronized (this.lock) {
-            ++this.items;
-        }
+       this.items.incrementAndGet();
     }
     private void decrement() {
-        synchronized (this.lock) {
-            --this.items;
-        }
+        this.items.decrementAndGet();
     }
 }
